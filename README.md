@@ -34,7 +34,7 @@ command replacing [myrepo] with the name of your dockerhub repo and add a versio
 
 	docker build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
 
-- NOTE: In the 5.4 release of Service Fabric runtime, when a container is deployed to Service Fabric, to communicate with docker you need to use a local host port by adding -H localhost:2375 to all your docker commmands.
+	- NOTE: In the 5.4 release of Service Fabric runtime, when a container is deployed to Service Fabric, to communicate with docker you need to use a local host port by adding -H localhost:2375 to all your docker commmands.
 If you see *"error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.25/containers/json: open //./pipe/docker_engine: The system cannot find the file specified."* then instead do the following command;
 
 	docker -H localhost:2375 build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
@@ -58,7 +58,7 @@ C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndServic
 
 7. Select the Container.Application project, right click and select **Publish** to publish the Container.Application via Visual Studio. Wait for services to deploy and start.
 
-**Note:** If you want to validate whether the services are running on your local machine, unfortunatelyyou can't just open up **http://localhost** in your browser at this time due to
+	- Note: If you want to validate whether the services are running on your local machine, unfortunatelyyou can't just open up **http://localhost** in your browser at this time due to
 [an issue in WinNAT](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/). However you can use the IP Address of the Windows Container. 
 To find that, type:
 
