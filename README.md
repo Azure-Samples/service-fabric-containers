@@ -39,47 +39,48 @@ If you see *"error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.
 
 	docker -H localhost:2375 build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
 
-3. Download NodeJs node-v6.9.1-x64.msi [from nodejs](https://nodejs.org/en/) (or pick a version of your choice) and copy this into the 
-C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndService\sources directory.
+3. Download NodeJs node-v6.9.1-x64.msi [from nodejs](https://nodejs.org/en/) (or pick a version of your choice) and copy this into the C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndService\sources directory.
 
 4. Go up one directory level to C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndService and run the following docker command.
 
 	docker build --tag=”[myrepo]/servicefabricbackendservice:v1” --file=”BackEndService.dockerfile” .
 
-5. Check that the images for both containers have been created in the local repository by running the docker command.
+5. Check that the images for both containers have been created in the local repository by running the following docker command.
 
 	docker images
 
-6. Next login to your docker hub repo providing your credentials and push the images with the following docker commands. 
+6. Next, login to your docker hub repo providing your credentials and push the images with the following docker commands. 
 
 	docker  login
+
 	docker push [myrepo]/servicefabricfrontendservice:v1
+	
 	docker push [myrepo]/servicefabricbackendservice:v1
 
-7. Select the Container.Application project, right click and select **Publish** to publish the Container.Application via Visual Studio. Wait for services to deploy and start.
+7. Select the **Container.Application** project, right click and select **Publish** to publish the Container.Application from Visual Studio. Wait for services to be deployed and started.
 
-	- Note: If you want to validate whether the services are running on your local machine, unfortunatelyyou can't just open up **http://localhost** in your browser at this time due to
+	- Note: If you want to *validate* whether the services are running on your local machine, you unfortunately can't just open up **http://localhost** in your browser at this time due to
 [an issue in WinNAT](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/). However you can use the IP Address of the Windows Container. 
-To find that, type:
+To find that, type;
 
 	docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" c8e5 
 
-Note that 'c8e5' is the start of a running Containers' Container ID, which will be different in your situation.
-It shows the IP Address of your running container for the FrontendService, for example 172.20.116.222. In your environment it will be different.
+	- Note that 'c8e5' is the start of a running Containers' Container ID, which will be different in your situation.
+It shows the IP Address of your running container for the FrontendService container, for example 172.20.116.222. In your environment it will be different.
 Open up Internet Explorer and navigate to that IP Address, and you should see a green web page.
 
-8. Alternatively create a cluster on Azure with a "Windows 2016 with containers" image and deploy the 
-project to this cluster. Since all the calls here go via the Azure load balancer, you can call onto the FrontendService.
-Open a browser and browse to **http://[my.azurecluster.name]:80** and you should see a green web page displayed with the name of the node the BackendService is running on.
+8. Alternatively create a cluster on Azure with a "Windows 2016 with Containers" image and deploy the 
+project to this cluster. Since all the calls here go via the Azure load balancer, you can call onto the FrontendService container.
+Open a browser and browse to **http://[my.azurecluster.name]:80** and you should see a green web page displayed with the name of the node the BackendService container is running on.
 
 ## More information
-The [Service Fabric documentation][service-fabric-docs] includes a rich set of tutorials and conceptual articles, which serve as a good complement to the samples.
 The [Service Fabric container documentation][service-fabric-containers-overview] provides details on the container features and scenarios.
 
- Loek has these excellent blog posts on Service Fabric and Windows Containers 
+Loek has these excellent blog posts on Service Fabric and Windows Containers 
 - [Running Windows Containers on Azure Service Fabric](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html)
 - [Running Windows Containers on Azure Service Fabric Part II](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure_10.html)
 
+The [Service Fabric documentation][service-fabric-docs] includes a rich set of tutorials and conceptual articles, which serve as a good complement to the samples.
 
 ## Debugging notes
 1. If you see "Access denied" from a service this usually means that you have not ACLed the endpoint with http.sys. 
