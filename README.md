@@ -7,7 +7,7 @@ author: mfussell
 # Service Fabric Container Samples
 This repository contains sample projects to help you get started with Service Fabric and Containers both on Windows and Linux.
 
-## Windows Server 2016 Container Sample
+# Windows Server 2016 Container Sample
 This sample shows containers running on Windows Server 2016. The solution has a frontend service written in C# that listens for web requests on port 80 and
 a backend service written in nodejs that serves up a web page with information about the node it is running on.
 
@@ -82,7 +82,10 @@ Loek has these excellent blog posts on Service Fabric and Windows Containers
 
 The [Service Fabric documentation][service-fabric-docs] includes a rich set of tutorials and conceptual articles, which serve as a good complement to the samples.
 
-## Debugging notes
+# Linux Container Sample
+Coming Soon. This sample shows containers running on Linux. 
+
+# Debugging notes
 1. If you see "Access denied" from a service this usually means that you have not ACLed the endpoint with http.sys. 
 Ensure that protocol="http" is in the Endpoint defintion in the ServiceManiest.xml 
 
@@ -90,7 +93,7 @@ Ensure that protocol="http" is in the Endpoint defintion in the ServiceManiest.x
 
 	docker ps
  
-Then get logs for the container instance 
+    Then get logs for the container instance 
 
 	docker logs <CONTAINER ID> 
 
