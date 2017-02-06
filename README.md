@@ -36,13 +36,12 @@ command replacing [myrepo] with the name of your dockerhub repo and add a versio
 docker build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
 ```
 
-NOTE: In the 5.4 release of Service Fabric runtime, when a container is deployed to Service Fabric, to communicate with docker you need to use a local host port by adding -H localhost:2375 to all your docker commmands.
+- NOTE: In the 5.4 release of Service Fabric runtime, when a container is deployed to Service Fabric, to communicate with docker you need to use a local host port by adding -H localhost:2375 to all your docker commmands.
 If you see *"error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.25/containers/json: open //./pipe/docker_engine: The system cannot find the file specified."* then instead do the following command;
 
 ```xml
 docker -H localhost:2375 build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
 ```
-
 3. Download NodeJs node-v6.9.1-x64.msi [from nodejs](https://nodejs.org/en/) (or pick a version of your choice) and copy this into the 
 C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndService\sources directory.
 
@@ -57,7 +56,6 @@ docker build --tag=”[myrepo]/servicefabricbackendservice:v1” --file=”BackE
 ```xml
 docker images
 ```
-
 6. Next login to your docker hub repo providing your credentials and push the images with the following docker commands. 
 
 ```xml
