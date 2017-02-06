@@ -96,7 +96,7 @@ Ensure that protocol="http" is in the Endpoint defintion in the ServiceManiest.x
  
     Then get logs for the container instance 
 
-	docker logs <CONTAINER ID> 
+	docker logs [CONTAINER ID] 
 
 3. To run the container locally and see whether it runs successfully use
 
