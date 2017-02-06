@@ -1,7 +1,7 @@
 ---
 services: service-fabric
 platforms: dotnet
-author: mfussell
+author: msfussell
 ---
 
 # Service Fabric Container Samples
@@ -23,13 +23,14 @@ In this way you can compare and contrast the difference between deploying a serv
 
 ## How to Build and Deploy the GuestExe.Application
 1. Build the VS solution
-2. Select the GuestExe.Application project, right click and select **Publish** to publish the GuestExe.Application via Visual Studio. Wait for services to deploy and start.
-3. Open a browser and browse to **http://localhost**. You should see a green web page displayed with the name of the node the BackendService is running on.
+2. Go to the directory C:\[mydirectory]\src\NodejsBackEndService\sources directory and copy the node.exe file into this.
+3. Select the GuestExe.Application project, right click and select **Publish** to publish the GuestExe.Application via Visual Studio. Wait for services to deploy and start.
+4. Open a browser and browse to **http://localhost**. You should see a green web page displayed with the name of the node the BackendService is running on.
 
 ## How to Build and Deploy the Container.Application
 1. Build the VS solution
 
-2. Open a console prompt at C:\[mydirectory]\Container.Application\Container.Application\FrontEndService and run the following docker
+2. Open a console prompt at C:\[mydirectory]\src\FrontEndService and run the following docker
 command replacing [myrepo] with the name of your dockerhub repo and add a version tag to the image e.g. v1, v2
 
 	docker build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
@@ -39,9 +40,9 @@ If you see *"error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.
 
 	docker -H localhost:2375 build --tag=”[myrepo]/servicefabricfrontendservice:v1” --file=”FrontEndService.dockerfile” .
 
-3. Download NodeJs node-v6.9.1-x64.msi [from nodejs](https://nodejs.org/en/) (or pick a version of your choice) and copy this into the C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndService\sources directory.
+3. Download NodeJs node-v6.9.1-x64.msi [from nodejs](https://nodejs.org/en/) (or pick a version of your choice) and copy this into the C:\[mydirectory]\src\NodejsBackEndService\sources directory.
 
-4. Go up one directory level to C:\[mydirectory]\Container.Application\Container.Application\NodejsBackEndService and run the following docker command.
+4. Go up one directory level to C:\[mydirectory]\src\NodejsBackEndService and run the following docker command.
 
 	docker build --tag=”[myrepo]/servicefabricbackendservice:v1” --file=”BackEndService.dockerfile” .
 

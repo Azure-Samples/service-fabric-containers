@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="FrontEndServicePkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType. 
+         The UseImplicitHost attribute indicates this is a guest executable service. -->
+    <StatelessServiceType ServiceTypeName="FrontEndServiceType" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <!-- The SetupEntryPoint is an optional element used to specify a
+         program to be executed before the service's code is launched. -->
+    <!--
+    <SetupEntryPoint>
+      <ExeHost>
+        <Program></Program>
+      </ExeHost>
+    </SetupEntryPoint>
+    -->
+    <EntryPoint>
+      <ExeHost >
+        <Program>FrontEndService.exe</Program>
+        <Arguments></Arguments>
+        <WorkingFolder>Work</WorkingFolder>
+        <!-- Uncomment to log console output (both stdout and stderr) to one of the
+            service's working directories. Do not keep logging on in production-->
+          <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/> 
+      </ExeHost>
+    </EntryPoint>
+    <!-- Provide environment variables to your container or exe: -->
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="BackendServiceName" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+      <EnvironmentVariable Name="IsContainer" Value=""/>
+    </EnvironmentVariables>
+  </CodePackage>        
+
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+       independently-updateable and versioned set of custom configuration settings for your service. -->
+  <ConfigPackage Name="Config" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <!-- UriScheme = "http" registers this endpoint with the Naming Service so this executable is discoverable -->
+      <!-- Protocol = "http" ensure that endpoing 80 is acled correctly to this service. You can see this in a command prompt with - netsh http show urlacl url=http://+:80/-->
+      <Endpoint Name="FrontEndServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    </Endpoints>
+  </Resources>
+</ServiceManifest>

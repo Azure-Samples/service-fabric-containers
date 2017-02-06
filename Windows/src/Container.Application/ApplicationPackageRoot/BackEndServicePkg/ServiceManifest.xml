@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="BackEndServicePkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
+    <StatelessServiceType ServiceTypeName="BackEndServiceType" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ContainerHost>
+        <!--Replace [myrepo] to be the name of your repo on https://hub.docker.com -->
+        <ImageName>[myrepo]/servicefabricbackendservice:v1</ImageName>
+        <Commands></Commands>
+      </ContainerHost>
+    </EntryPoint>
+    <!-- Pass environment variables to your container. -->
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="IsContainer" Value="true"/>
+    </EnvironmentVariables>
+  </CodePackage>
+
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+       independently-updateable and versioned set of custom configuration settings for your service. -->
+  <ConfigPackage Name="Config" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. For a guest executable is used to register with the NamingService at its REST endpoint
+           with http scheme. In this case since no port is specified then one if created and assigned dynamically
+           to the service.-->
+      <Endpoint Name="BackEndServiceTypeEndpoint" UriScheme="http" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>

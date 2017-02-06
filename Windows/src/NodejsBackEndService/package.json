@@ -1,0 +1,9 @@
+{
+  "name": "nodejs-back-end-service",
+  "version": "0.0.0",
+  "description": "NodejsBackEndService",
+  "main": "BackEndService.js",
+  "author": {
+    "name": "microsoft"
+  }
+}
