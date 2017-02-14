@@ -102,6 +102,10 @@ Ensure that protocol="http" is in the Endpoint defintion in the ServiceManiest.x
 
 	docker -H localhost:2375  run -ti [myrepo]/servicefabricbackendservice:v1
 
+
+## MSFT OSS Code Of Conduct Notice
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
 <!-- Links -->
 
 [service-fabric-docs]: http://aka.ms/servicefabricdocs
