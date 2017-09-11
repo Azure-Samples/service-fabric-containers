@@ -10,7 +10,7 @@
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>suhuruli/demolinuxjs</ImageName>
+            <ImageName>suhuruli/demolinuxjs:latest</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

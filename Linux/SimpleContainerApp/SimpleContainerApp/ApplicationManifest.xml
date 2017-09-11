@@ -4,7 +4,7 @@
     <ServiceManifestRef ServiceManifestName="pythonbackendPkg" ServiceManifestVersion="1.0.0"/>
     <ConfigOverrides/>
     <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
+      <ContainerHostPolicies CodePackageRef="Code">/>
         <PortBinding ContainerPort="80" EndpointRef="pythonbackendTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
@@ -13,14 +13,14 @@
     <ServiceManifestRef ServiceManifestName="nodejsfrontendPkg" ServiceManifestVersion="1.0.0"/>
         <ConfigOverrides/>
     <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
+      <ContainerHostPolicies CodePackageRef="Code">/>
         <PortBinding ContainerPort="8000" EndpointRef="nodejsfrontendTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
     <Service Name="pythonbackend" ServiceDnsName="pythonbackend.simplecontainerapp">
-      <StatelessService ServiceTypeName="pythonbackendType" InstanceCount="1">
+      <StatelessService ServiceTypeName="pythonbackendType" InstanceCount="3">
         <SingletonPartition/>
       </StatelessService>
     </Service>

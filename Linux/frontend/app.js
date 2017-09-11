@@ -4,23 +4,28 @@ var dns = require('dns');
 
 var server = http.createServer(function (request, response) {
 	var nodeName = process.env.Fabric_NodeName;
+	var ipAddress = '';
+	var port = 5000;	
 
-	dns.resolve("pythonbackend.simplecontainerapp",'SRV', function(err, addresses){ 
-		if (err){
-			response.end(err.code);
+	dns.resolve("pythonbackend.simplecontainerapp", function(errors, ipAddresses){
+		if (errors){
+			response.end(errors.message);
 		} else {
-			var host = addresses[0].name;
-			var port = addresses[0].port;
 
+			//extract ip address of an instance of the backend service
+			ipAddress = ipAddresses[0];
+
+			//build options JSON for the http request
 			var options = {
-				host: 'pythonbackend.simplecontainerapp',
-				port: addresses[0].port
+				host: ipAddress,
+				port: port
 			  };
-			  
+			
+			//define the callback of the backend http request
 			callback = function(res) {
 				var str = 'Python backend is running on: ';
 				
-				//another chunk of data has been recieved, so append it to `str`
+				//chunk of data received, append to str
 				res.on('data', function (chunk) {
 					str += chunk;
 				});
@@ -33,8 +38,21 @@ var server = http.createServer(function (request, response) {
 				});
 			}
 			
-			http.request(options, callback).end();
+			//make the http request to the backend 
+			var req = http.request(options, callback);
+
+			//error received while making http request to backend
+			req.on("error", (err) => {
+				response.end(err.message);		
+			});
+
+			req.end();
 		}
+	});
+
+	//error received so display error
+	request.on('error', (err)=>{
+		response.end(err.message);
 	});
 
 });
