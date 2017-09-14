@@ -6,4 +6,6 @@ ADD     /azure-vote /app
 
 WORKDIR /app
 
+ENV REDIS redisbackend.testapp
+
 EXPOSE 80

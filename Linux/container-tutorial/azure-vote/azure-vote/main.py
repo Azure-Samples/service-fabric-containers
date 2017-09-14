@@ -16,26 +16,28 @@ title =         app.config['TITLE']
 # Redis configurations
 redis_server = os.environ['REDIS']
 
-# Redis Connection
-try:
-    print "Redis server is: " + redis_server
-    r = redis.StrictRedis(host=redis_server, port=6379, db=0)
-    r.ping()
-except redis.ConnectionError:
-    exit('Failed to connect to Redis, terminating.')
-
-# Change title to host name to demo NLB
-if app.config['SHOWHOST'] == "true":
-    title = socket.gethostname()
-
-# Init Redis
-r.set(button1,0)
-r.set(button2,0)
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
     if request.method == 'GET':
+        # Redis Connection
+        try: 
+
+            r = redis.StrictRedis(host=redis_server, port=6379, db=0)
+            r.ping()
+
+            # Init Redis
+            if (r.exists(button1)):
+                r.set(button1, r.get(button1))
+            else:
+                r.set(button1,0)
+
+            if (r.exists(button2)):
+                r.set(button2, r.get(button2))
+            else: 
+                r.set(button2, 0) 
+        except redis.ConnectionError:
+            exit('Failed to connect to Redis, terminating.')
 
         # Get current values
         vote1 = r.get(button1).decode('utf-8')
@@ -45,7 +47,11 @@ def index():
         return render_template("index.html", value1=int(vote1), value2=int(vote2), button1=button1, button2=button2, title=title)
 
     elif request.method == 'POST':
-
+        try: 
+            r = redis.StrictRedis(host=redis_server, port=6379, db=0)
+        except redis.ConnectionError:
+            exit('Failed to connect to Redis, terminating.')
+            
         if request.form['vote'] == 'reset':
             
             # Empty table and return results

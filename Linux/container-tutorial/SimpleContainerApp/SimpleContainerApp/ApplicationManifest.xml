@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationManifest ApplicationTypeName="SimpleContainerAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="redisbackendPkg" ServiceManifestVersion="1.0.0"/>
+    <ConfigOverrides/>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">/>
+        <PortBinding ContainerPort="6379" EndpointRef="redisbackendTypeEndpoint"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="pythonfrontendPkg" ServiceManifestVersion="1.0.0"/>
+        <ConfigOverrides/>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">/>
+        <PortBinding ContainerPort="80" EndpointRef="pythonfrontendTypeEndpoint"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="redisbackend" ServiceDnsName="redisbackend.testapp">
+      <StatelessService ServiceTypeName="redisbackendType" InstanceCount="1">
+        <SingletonPartition/>
+      </StatelessService>
+    </Service>
+    <Service Name="pythonfrontend">
+      <StatelessService ServiceTypeName="pythonfrontendType" InstanceCount="1">
+        <SingletonPartition/>
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>
