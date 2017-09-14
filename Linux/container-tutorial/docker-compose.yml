@@ -1,0 +1,18 @@
+version: '3'
+services:
+  azure-vote-back:
+    image: suhuruli/azure-vote-back
+    dns: azure-vote-back
+    deploy: 
+      replicas: 1
+    ports:
+        - "6379:6379"
+
+  azure-vote-front:
+    image: suhuruli/azure-vote-front
+    deploy: 
+      replicas: 1
+    environment:
+      REDIS: azure-vote-back
+    ports:
+        - "4000:80"
