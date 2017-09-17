@@ -24,7 +24,7 @@ The solution contains two folders and a 'docker-compse.yml' file. The 'azure-vot
 2. Inside **[mydirectory]** run the following command to deploy the application: 
 
     ```sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml```
-3. Open a browser and browse to **http://[my.azurecluster.name]:4000** and you should see the Voting web UI. 
+3. Open a browser and browse to **http://[my.azurecluster.name]:8080** and you should see the Voting web UI. 
 5. To remove the application from your cluster, run the remove command provided in the directory. Note that this command may take some time to run. 
 
     ```sfctl compose remove  --application-id TestContainerApp [ --timeout ]```
