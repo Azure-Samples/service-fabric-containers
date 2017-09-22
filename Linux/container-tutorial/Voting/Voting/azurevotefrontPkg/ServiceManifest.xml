@@ -10,12 +10,13 @@
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>suhuruli.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>microsoft/azure-vote-front:redis-v2</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      <EnvironmentVariables>
+        <EnvironmentVariable Name="REDIS" Value="redis" />
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>

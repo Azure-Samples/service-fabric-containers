@@ -4,7 +4,6 @@
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
         <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="suhuruli" Password="/+=em0/=I5V==F=JBmOt/+zrAp1/F7HD" PasswordEncrypted="false"/>
         <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
     </ContainerHostPolicies>
     </Policies>
@@ -13,7 +12,6 @@
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
         <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="suhuruli" Password="/+=em0/=I5V==F=JBmOt/+zrAp1/F7HD" PasswordEncrypted="false"/>
         <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
     </ContainerHostPolicies>
     </Policies>
@@ -24,7 +22,7 @@
         <SingletonPartition/>
       </StatelessService>
     </Service>
-    <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
+    <Service Name="azurevoteback" ServiceDnsName="redis">
       <StatelessService ServiceTypeName="azurevotebackType" InstanceCount="1">
         <SingletonPartition/>
       </StatelessService>

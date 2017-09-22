@@ -10,7 +10,7 @@
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>suhuruli.azurecr.io/azure-vote-back:v1</ImageName>
+            <ImageName>redis:alpine</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
