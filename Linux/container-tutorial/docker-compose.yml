@@ -1,0 +1,11 @@
+version: '3'
+services:
+  azure-vote-back:
+    image: redis
+    ports:
+        - "6379:6379"
+
+  azure-vote-front:
+    image: suhuruli.azurecr.io/azure-vote-front:v1
+    ports:
+        - "80:80"
