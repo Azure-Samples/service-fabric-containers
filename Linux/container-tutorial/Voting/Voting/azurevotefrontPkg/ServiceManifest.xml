@@ -10,7 +10,7 @@
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>suhuruli.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>servicefabricoss/servicefabric-linux-sample</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

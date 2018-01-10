@@ -4,7 +4,6 @@
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
       <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
-          <RepositoryCredentials AccountName="suhuruli" Password="GFUq7z5blh5eEJd=SAlDbvcmRKbLZQjR" PasswordEncrypted="false"/>
           <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
         </ContainerHostPolicies>
     </Policies>

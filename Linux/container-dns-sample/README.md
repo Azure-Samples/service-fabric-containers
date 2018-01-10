@@ -1,7 +1,7 @@
 ---
 services: service-fabric
-platforms: dotnet
-author: msfussell
+platforms: Linux
+author: suhuruli
 ---
 
 # Service Fabric Container Samples
