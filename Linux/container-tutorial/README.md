@@ -1,36 +1,14 @@
----
-services: service-fabric
-platforms: dotnet
-author: msfussell
----
-
 # Service Fabric Container Samples
 This repository contains a sample project to help you get started with Service Fabric and Containers on Linux.
 
 # Linux Ubuntu 16.04 Container Sample
-The solution contains two folders and a 'docker-compse.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'redis' directory contains the Dockerfile used to build the backend image. The 'docker-compose.yml' file is used to deploy the application to Service Fabric. 
+The solution contains two folders and a 'docker-compse.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. Service Fabric clusters require applications to follow an application package structure and the 'Voting' directory defines that structure for this project. Alternatively, to deploy a container based solution to Service Fabric, Docker compose can be used and the 'docker-compose.yml' is the compose file used to define this project. 
 
-## Prerequisites for development machine
-1. Get a physical machine or Azure VM with "Ubuntu 16.04" for your development machine. 
-2. [Set up the developer environment](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux) 
-3. Create a Service Fabric Linux cluster on Azure with a minimum of five nodes. 
-    NOTE: The Linux demo requires a cluster running on Azure. For the purposes of this sample, you can use the [party cluster](https://try.servicefabric.azure.com/).
-4. Clone or download this container solution into a directory from here onwards called **[mydirectory]**
-
-## How to Build and Deploy the container application
-1. Connect to your Service Fabric cluster by running the following command
-
-    ```sfctl cluster select --endpoint http://<my.azurecluster.name>:<port>```
-2. Inside **[mydirectory]** run the following command to deploy the application: 
-
-    ```sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml```
-3. Open a browser and browse to **http://[my.azurecluster.name]:8080** and you should see the Voting web UI. 
-5. To remove the application from your cluster, run the remove command provided in the directory. Note that this command may take some time to run. 
-
-    ```sfctl compose remove  --application-id TestContainerApp [ --timeout ]```
+## Instructions to Deploy this Project
+Please follow the instructions on the [Service Fabric Quickstart](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux) to deploy this project to a Service Fabric cluster.
 
 ## More information
-The [Service Fabric container documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-linux-overview) provides details on the container features and scenarios.
+The [Service Fabric container tutorial](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-create-container-images) provides a more in depth walk through of how to build, package and deploy this project to a Service Fabric cluster. 
 
 The following are other useful links which contain more in depth information
 - [Docker Compose on Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-docker-compose)

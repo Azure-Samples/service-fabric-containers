@@ -10,13 +10,10 @@
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>microsoft/azure-vote-front:redis-v2</ImageName>
+            <ImageName>servicefabricoss/servicefabric-linux-sample</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
-      <EnvironmentVariables>
-        <EnvironmentVariable Name="REDIS" Value="redis" />
-      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
