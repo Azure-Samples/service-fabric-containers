@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     ApplicationTypeName="VolumeTestAppType"
+                     ApplicationTypeVersion="1.0.0">
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="VolumeTestServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="" Password="" />
+        <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
+          <DriverOption Name="shareName" Value="" />
+          <DriverOption Name="storageAccountName" Value="" />
+          <DriverOption Name="storageAccountKey" Value="" />
+        </Volume>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="Svc" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="VolumeTestServiceType" InstanceCount="1">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>
