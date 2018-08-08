@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApplicationManifest ApplicationTypeName="SimpleContainerAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="pythonbackend_instancecount" DefaultValue="1" />
+    <Parameter Name="nodejsfrontend_instancecount" DefaultValue="1" />
+  </Parameters>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="pythonbackendPkg" ServiceManifestVersion="1.0.0"/>
     <ConfigOverrides/>
@@ -20,12 +24,12 @@
   </ServiceManifestImport>
   <DefaultServices>
     <Service Name="pythonbackend" ServiceDnsName="pythonbackend.simplecontainerapp">
-      <StatelessService ServiceTypeName="pythonbackendType" InstanceCount="3">
+      <StatelessService ServiceTypeName="pythonbackendType" InstanceCount="[pythonbackend_instancecount]">
         <SingletonPartition/>
       </StatelessService>
     </Service>
     <Service Name="nodejsfrontend">
-      <StatelessService ServiceTypeName="nodejsfrontendType" InstanceCount="1">
+      <StatelessService ServiceTypeName="nodejsfrontendType" InstanceCount="[nodejsfrontend_instancecount]">
         <SingletonPartition/>
       </StatelessService>
     </Service>
