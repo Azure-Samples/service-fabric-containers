@@ -39,6 +39,6 @@ elif [ $1 = "-onebox" ]
 elif [ $1 = "-multinode" ]
  then
    echo "MultiNode environment proceed with instanceCount of -1 for front end and 3 instance count for back end"
-   create_app "{\"pythonbackend_instancecount\":\"3\",\"nodejs_instancecount\":\"-1\"}"
+   create_app "{\"pythonbackend_instancecount\":\"3\",\"nodejsfrontend_instancecount\":\"-1\"}"
 
 fi
