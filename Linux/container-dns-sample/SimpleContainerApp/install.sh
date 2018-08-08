@@ -16,13 +16,9 @@ print_help()
 
 
 if [ "$1" = "--help" ]
-
   then
-
     print_help
-
     exit 0
-
 fi
 
 sfctl application upload --path SimpleContainerApp --show-progress
