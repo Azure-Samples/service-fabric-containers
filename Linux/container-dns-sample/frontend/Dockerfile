@@ -1,4 +1,4 @@
-# Use an official Python runtime as a base image
+# Use an official Node runtime as a base image
 FROM node:6
 
 # Set the working directory to /app
@@ -13,5 +13,5 @@ EXPOSE 8000
 # Define environment variable
 ENV NAME World
 
-# Run app.py when the container launches
+# Run app.js when the container launches
 CMD ["node", "app.js"]
