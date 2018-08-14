@@ -1,0 +1,15 @@
+version: '3'
+services:
+  redisbackend.testapp:
+    deploy:
+      replicas: 1
+    image: redis:alpine
+    ports:
+        - "6379:6379"
+
+  azure-vote-front:
+    image: suhuruli/azure-vote-front
+    deploy:
+      replicas: 1
+    ports:
+        - "80:80"

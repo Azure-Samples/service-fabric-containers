@@ -5,7 +5,7 @@ var dns = require('dns');
 var server = http.createServer(function (request, response) {
 	var nodeName = process.env.Fabric_NodeName;
 	var ipAddress = '';
-	var port = 5000;	
+	var port = 80;	
 
 	dns.resolve("pythonbackend.simplecontainerapp", function(errors, ipAddresses){
 		if (errors){
