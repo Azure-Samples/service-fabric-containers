@@ -52,6 +52,10 @@ In ApplicationManifest.xml, provide the storage account name, storage account ke
     <DriverOption Name="storageAccountKey" Value="" />
     <DriverOption Name="storageAccountFQDN" Value="" />
 
+>  If storageAccountFQDN is not in the options, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName.
+>- Example1: aftest.file.core.windows.net
+>- Example2: aftest2.file.core.chinacloudapi.cn
+
 ### 2. Copy the application package to the image store
 Run the command below with the appropriate value for [ApplicationPackagePath] and [ImageStoreConnectionString]:
 
