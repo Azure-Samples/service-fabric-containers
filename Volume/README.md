@@ -50,6 +50,7 @@ In ApplicationManifest.xml, provide the storage account name, storage account ke
     <DriverOption Name="shareName" Value="" />
     <DriverOption Name="storageAccountName" Value="" />
     <DriverOption Name="storageAccountKey" Value="" />
+    <DriverOption Name="storageAccountFQDN" Value="" />
 
 ### 2. Copy the application package to the image store
 Run the command below with the appropriate value for [ApplicationPackagePath] and [ImageStoreConnectionString]:

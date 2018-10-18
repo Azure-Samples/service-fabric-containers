@@ -14,6 +14,7 @@
           <DriverOption Name="shareName" Value="" />
           <DriverOption Name="storageAccountName" Value="" />
           <DriverOption Name="storageAccountKey" Value="" />
+          <DriverOption Name="storageAccountFQDN" Value="" />
         </Volume>
       </ContainerHostPolicies>
     </Policies>
