@@ -45,7 +45,7 @@ In ApplicationManifest.xml, provide the account name and password for the reposi
     <RepositoryCredentials AccountName="" Password="" />
 
 #### Azure Files file share information
-In ApplicationManifest.xml, provide the storage account name, storage account key and file share name for the Azure Files file share that provides the volume for the container.
+In ApplicationManifest.xml, provide the storage account name, storage account key, storage account FQDN(optional) and file share name for the Azure Files file share that provides the volume for the container.
 
     <DriverOption Name="shareName" Value="" />
     <DriverOption Name="storageAccountName" Value="" />
