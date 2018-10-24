@@ -45,16 +45,20 @@ In ApplicationManifest.xml, provide the account name and password for the reposi
     <RepositoryCredentials AccountName="" Password="" />
 
 #### Azure Files file share information
-In ApplicationManifest.xml, provide the storage account name, storage account key, storage account FQDN(optional) and file share name for the Azure Files file share that provides the volume for the container.
+In ApplicationManifest.xml, provide the storage account name, storage account key, storage account FQDN and file share name for the Azure Files file share that provides the volume for the container.
 
-    <DriverOption Name="shareName" Value="" />
-    <DriverOption Name="storageAccountName" Value="" />
-    <DriverOption Name="storageAccountKey" Value="" />
-    <DriverOption Name="storageAccountFQDN" Value="" />
+> If storageAccountFQDN is not specified, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName. 
 
->  If storageAccountFQDN is not in the options, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName.  In the following examples, aftest is storageAccountName for general Azure and aftest2 is storageAccountName for Azure China.
->- Example1: aftest.file.core.windows.net
->- Example2: aftest2.file.core.chinacloudapi.cn
+    - Example1: 
+        <DriverOption Name="shareName" Value="myshare1" />
+        <DriverOption Name="storageAccountName" Value="myaccount1" />
+        <DriverOption Name="storageAccountKey" Value="mykey1" />
+        <!-- storageAccountFQDN will be "myaccount1.file.core.windows.net" -->
+    - Example2: 
+        <DriverOption Name="shareName" Value="myshare2" />
+        <DriverOption Name="storageAccountName" Value="myaccount2" />
+        <DriverOption Name="storageAccountKey" Value="mykey2" />
+        <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
 
 ### 2. Copy the application package to the image store
 Run the command below with the appropriate value for [ApplicationPackagePath] and [ImageStoreConnectionString]:
