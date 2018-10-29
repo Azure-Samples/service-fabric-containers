@@ -14,7 +14,7 @@ More information about specifying a volume for a container in a Service Fabric a
 
 ## Prerequisites
 ### Windows operating system
-This sample depends on the [Azure Files volume plugin](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.255.389.9494.zip). The Windows version of this plugin is supported only on [Windows Server version 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems. Therefore this sample also works only on those operating systems.
+This sample depends on the [Azure Files volume plugin](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9494.zip). The Windows version of this plugin is supported only on [Windows Server version 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems. Therefore this sample also works only on those operating systems.
 
 _Note:_ For Linux, the Azure Files volume plugin - and hence this sample too - works on all operating system versions supported by Service Fabric.
 
