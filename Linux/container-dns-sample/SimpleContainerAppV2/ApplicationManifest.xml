@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationManifest ApplicationTypeName="SimpleContainerAppType" ApplicationTypeVersion="2.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="pythonbackendPkg" ServiceManifestVersion="1.0.0"/>
+    <ConfigOverrides/>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">/>
+        <PortBinding ContainerPort="80" EndpointRef="pythonbackendTypeEndpoint"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="nodejsfrontendPkg" ServiceManifestVersion="2.0.0"/>
+        <ConfigOverrides/>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">/>
+        <PortBinding ContainerPort="8000" EndpointRef="nodejsfrontendTypeEndpoint"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+</ApplicationManifest>

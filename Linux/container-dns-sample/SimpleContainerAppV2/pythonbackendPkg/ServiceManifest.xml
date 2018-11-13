@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="pythonbackendPkg" Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+   <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="pythonbackendType" UseImplicitHost="true">
+   </StatelessServiceType>
+   </ServiceTypes>
+   
+   <CodePackage Name="code" Version="1.0.0">
+      <EntryPoint>
+         <ContainerHost>
+            <ImageName>suhuruli/demolinux:latest</ImageName>
+            <Commands></Commands>
+         </ContainerHost>
+      </EntryPoint>
+      <EnvironmentVariables> 
+      </EnvironmentVariables> 
+   </CodePackage>
+
+   <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="pythonbackendTypeEndpoint" UriScheme="http" Port="5000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ </ServiceManifest>

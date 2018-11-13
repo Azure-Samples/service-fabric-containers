@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="nodejsfrontendPkg" Version="2.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+   <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="nodejsfrontendType" UseImplicitHost="true">
+   </StatelessServiceType>
+   </ServiceTypes>
+   
+   <CodePackage Name="code" Version="2.0.0">
+      <EntryPoint>
+         <ContainerHost>
+            <ImageName>suhuruli/demolinuxjs:v2</ImageName>
+            <Commands></Commands>
+         </ContainerHost>
+      </EntryPoint>
+      <EnvironmentVariables> 
+      </EnvironmentVariables> 
+   </CodePackage>
+
+      <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="nodejsfrontendTypeEndpoint" UriScheme="http" Port="8080" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ </ServiceManifest>
