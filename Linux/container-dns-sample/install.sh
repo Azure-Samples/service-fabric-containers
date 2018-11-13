@@ -23,6 +23,8 @@ fi
 
 sfctl application upload --path SimpleContainerApp --show-progress
 sfctl application provision --application-type-build-path SimpleContainerApp
+sfctl service create --name fabric:/ContainerApplication/nodejsFrontEnd --service-type nodejsfrontendType --stateless --instance-count 1 --app-id ContainerApplication  --singleton-scheme
+sfctl service create --name fabric:/ContainerApplication/pythonBackEnd --service-type pythonbackendType --stateless --instance-count 1 --app-id ContainerApplication  --dns-name pythonbackend.simplecontainerapp --singleton-scheme
 
 if [ $# -eq 0 ]
   then

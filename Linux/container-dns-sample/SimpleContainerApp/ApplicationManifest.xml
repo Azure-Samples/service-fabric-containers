@@ -22,16 +22,4 @@
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
-  <DefaultServices>
-    <Service Name="pythonbackend" ServiceDnsName="pythonbackend.simplecontainerapp">
-      <StatelessService ServiceTypeName="pythonbackendType" InstanceCount="[pythonbackend_instancecount]">
-        <SingletonPartition/>
-      </StatelessService>
-    </Service>
-    <Service Name="nodejsfrontend">
-      <StatelessService ServiceTypeName="nodejsfrontendType" InstanceCount="[nodejsfrontend_instancecount]">
-        <SingletonPartition/>
-      </StatelessService>
-    </Service>
-  </DefaultServices>
 </ApplicationManifest>
