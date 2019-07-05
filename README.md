@@ -1,7 +1,8 @@
 ---
-services: service-fabric
-platforms: Linux, Windows
-author: suhuruli
+languages: []
+products:
+- azure
+topic: sample
 ---
 
 # Service Fabric Container Samples
