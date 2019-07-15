@@ -1,8 +1,11 @@
 ---
-languages: []
+languages:
+- csharp
+- javascript
 products:
 - azure
-topic: sample
+page_type: sample
+description: "Sample projects to help you get started with Service Fabric and Containers both on Windows and Linux."
 ---
 
 # Service Fabric Container Samples
