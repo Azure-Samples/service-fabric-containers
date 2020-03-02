@@ -2,7 +2,7 @@
 This repository contains a sample project to help you get started with Service Fabric and Containers on Linux.
 
 # Linux Ubuntu 16.04 Container Sample
-The solution contains two folders and a 'docker-compse.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. Service Fabric clusters require applications to follow an application package structure and the 'Voting' directory defines that structure for this project. Alternatively, to deploy a container based solution to Service Fabric, Docker compose can be used and the 'docker-compose.yml' is the compose file used to define this project. 
+The solution contains two folders and a 'docker-compose.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. Service Fabric clusters require applications to follow an application package structure and the 'Voting' directory defines that structure for this project. Alternatively, to deploy a container based solution to Service Fabric, Docker compose can be used and the 'docker-compose.yml' is the compose file used to define this project. 
 
 ## Instructions to Deploy this Project
 Please follow the instructions on the [Service Fabric Quickstart](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux) to deploy this project to a Service Fabric cluster.
