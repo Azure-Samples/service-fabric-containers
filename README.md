@@ -5,6 +5,7 @@ languages:
 products:
 - azure
 - azure-container-instances
+- azure-service-fabric
 page_type: sample
 description: "Sample projects to help you get started with Service Fabric and Containers both on Windows and Linux."
 ---
