@@ -71,7 +71,7 @@ The file may be downloaded using any tool that enables browsing an Azure Files f
 
 ## Docker Hub rate limits
 
-Effective November 2, 2020, download rate limits apply to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address.
+Effective November 2, 2020, download rate limits apply to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts.
 
 This sample pulls the following public images from Docker Hub. Please note that you may be rate limited.
 
