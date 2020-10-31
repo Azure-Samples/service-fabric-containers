@@ -68,3 +68,15 @@ Run the command below with the appropriate value for [ApplicationPackagePath] an
 As mentioned [earlier](#container-volume-sample), the sample application creates a file named _data.txt_ in the file share (if it does not exist already). The content of this file is a number that is incremented every 30 seconds by the application. To verify that the example works correctly, open the _data.txt_ file periodically and verify that the number is being updated.
 
 The file may be downloaded using any tool that enables browsing an Azure Files file share. The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) is an example of such a tool.
+
+## Docker Hub rate limits
+
+Effective November 2, 2020, download rate limits apply to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts.
+
+This sample pulls the following public images from Docker Hub. Please note that you may be rate limited.
+
+| Source | Image   |
+| -------------|-------------|
+| src\VolumeTestApp.dockerfile | microsoft/dotnet:2.0-runtime |
+
+For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/en-us/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
