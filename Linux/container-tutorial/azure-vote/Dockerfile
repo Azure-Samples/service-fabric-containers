@@ -1,4 +1,4 @@
-FROM    tiangolo/uwsgi-nginx-flask:python3.6
+FROM    mcr.microsoft.com/azuredocs/uwsgi-nginx-flask:python3.6
 
 RUN     pip install redis
  
