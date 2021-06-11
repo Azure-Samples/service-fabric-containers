@@ -10,7 +10,7 @@
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>suhuruli/azure-vote-front</ImageName>
+            <ImageName>mcr.microsoft.com/azuredocs/azure-vote-front:v1</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

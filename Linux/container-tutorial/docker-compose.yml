@@ -8,7 +8,7 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    image: suhuruli/azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
     deploy:
       replicas: 1
     ports:
