@@ -1,4 +1,4 @@
-FROM    tiangolo/uwsgi-nginx-flask:latest
+FROM    tiangolo/uwsgi-nginx-flask:3.6
 
 RUN     pip install redis
  
